@@ -30,3 +30,6 @@ jobs:
         issue-type-label-description: 'Jira Issue Type'
         add-jira-key-to-title: true
         add-jira-key-to-body: true
+    - uses: kentaro-m/task-completed-checker-action@v0.1.2
+      with:
+        repo-token: "${{ secrets.GITHUB_TOKEN }}"
