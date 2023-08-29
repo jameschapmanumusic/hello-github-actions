@@ -18,13 +18,19 @@ on:
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  # This workflow contains a single job called "greet"
-  greet:
-    # The type of runner that the job will run on
+  automation:
     runs-on: ubuntu-latest
-
-    # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-    # Runs a single command using the runners shell
-    - name: Send greeting
-      run: echo "Hello ${{ github.event.inputs.name }}"
+    - name: Add Jira info
+      uses: contractify/add-jira-info@v1
+      with:
+        github-token: ${{ secrets.GITHUB_TOKEN }}
+        jira-base-url: https://umusic.atlassian.net
+        jira-username: ${{ secrets.JIRA_USERNAME }}
+        jira-token: ${{ secrets.JIRA_TOKEN }}
+        jira-project-key: CWS
+        add-label-with-issue-type: true
+        issue-type-label-color: FBCA04
+        issue-type-label-description: 'Jira Issue Type'
+        add-jira-key-to-title: true
+        add-jira-key-to-body: true
