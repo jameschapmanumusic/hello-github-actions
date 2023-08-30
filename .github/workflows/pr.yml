@@ -16,6 +16,7 @@ jobs:
     - uses: btwrk/action-jira-linter@v1.0.1
       with:
         github-token: ${{ secrets.GITHUB_TOKEN }}
+        jira-user: 'james.chapman@umusic.com'
         jira-token: ${{ secrets.JIRA_TOKEN }}
         jira-base-url: https://umusic.atlassian.net
         pr-threshold: 1000
