@@ -13,6 +13,16 @@ jobs:
   automation:
     runs-on: ubuntu-latest
     steps:
+    - uses: contractify/add-jira-info@v1
+      with:
+        github-token: ${{ secrets.GITHUB_TOKEN }}
+        jira-base-url: https://umusic.atlassian.net
+        jira-username: ${{ secrets.JIRA_USERNAME }}
+        jira-token: ${{ secrets.JIRA_TOKEN }}
+        jira-project-key: CWS
+        add-label-with-issue-type: false
+        add-jira-key-to-title: true
+        add-jira-key-to-body: false
     - uses: btwrk/action-jira-linter@v1.0.1
       with:
         github-token: ${{ secrets.GITHUB_TOKEN }}
