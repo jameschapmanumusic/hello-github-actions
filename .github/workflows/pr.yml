@@ -13,19 +13,13 @@ jobs:
   automation:
     runs-on: ubuntu-latest
     steps:
-    - name: Add Jira info
-      uses: contractify/add-jira-info@v1
+    - uses: cleartax/jira-lint@master
+      name: jira-lint
       with:
         github-token: ${{ secrets.GITHUB_TOKEN }}
-        jira-base-url: https://umusic.atlassian.net
-        jira-username: ${{ secrets.JIRA_USERNAME }}
         jira-token: ${{ secrets.JIRA_TOKEN }}
-        jira-project-key: CWS
-        add-label-with-issue-type: true
-        issue-type-label-color: FBCA04
-        issue-type-label-description: 'Jira Issue Type'
-        add-jira-key-to-title: true
-        add-jira-key-to-body: true
+        jira-base-url: https://umusic.atlassian.net
+        pr-threshold: 1000
     - uses: kentaro-m/task-completed-checker-action@v0.1.2
       with:
         repo-token: "${{ secrets.GITHUB_TOKEN }}"
