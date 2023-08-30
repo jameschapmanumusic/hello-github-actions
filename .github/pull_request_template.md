@@ -19,5 +19,3 @@
 
 ## Product Owners ## 
 * [ ] No outstanding issues in the PR environment
-
-## Jira ##
