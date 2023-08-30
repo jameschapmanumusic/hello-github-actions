@@ -13,8 +13,7 @@ jobs:
   automation:
     runs-on: ubuntu-latest
     steps:
-    - uses: cleartax/jira-lint@master
-      name: jira-lint
+    - uses: btwrk/action-jira-linter@v1.0.1
       with:
         github-token: ${{ secrets.GITHUB_TOKEN }}
         jira-token: ${{ secrets.JIRA_TOKEN }}
